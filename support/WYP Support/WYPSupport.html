@@ -1,1 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What's Your Poison? - Support & Documentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            margin: -20px -20px 40px -20px;
+            border-radius: 0 0 20px 20px;
+        }
+        
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .version-info {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 4px solid #2196F3;
+        }
+        
+        .version-info p {
+            margin: 5px 0;
+        }
+        
+        h2 {
+            color: #667eea;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        
+        h3 {
+            color: #764ba2;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+            padding: 25px;
+            background: #fafafa;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .feature-card h4 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        .feature-card ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+        
+        .feature-card li {
+            margin: 5px 0;
+        }
+        
+        .faq-item {
+            background: white;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .faq-item h4 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        .contact-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .contact-box a {
+            color: white;
+            text-decoration: underline;
+            font-weight: bold;
+        }
+        
+        .contact-box a:hover {
+            text-decoration: none;
+        }
+        
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        
+        ul, ol {
+            margin-left: 25px;
+            margin-top: 10px;
+        }
+        
+        li {
+            margin: 8px 0;
+        }
+        
+        .troubleshooting-item {
+            background: #fff3cd;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #ffc107;
+        }
+        
+        .troubleshooting-item h4 {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+        
+        .supported-sites {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 15px 0;
+        }
+        
+        .site-badge {
+            background: #667eea;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding: 30px;
+            color: #666;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            header {
+                margin: -10px -10px 30px -10px;
+                padding: 30px 15px;
+            }
+            
+            header h1 {
+                font-size: 1.8em;
+            }
+            
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>What's Your Poison?</h1>
+            <p>Discover Your Perfect Cocktail</p>
+        </header>
+        
+        <div class="version-info">
+            <p><strong>Version:</strong> 1.0.0</p>
+            <p><strong>Latest Update:</strong> <span id="currentDate"></span></p>
+        </div>
+        
+        <div class="section">
+            <h2>Welcome to What's Your Poison?</h2>
+            <p>What's Your Poison? is a comprehensive cocktail management app that helps you discover, organize, and create amazing drinks. Whether you're a home bartender, cocktail enthusiast, or just looking to make better use of your bar, this app is designed to transform your cocktail experience.</p>
+            
+            <h3>Key Features</h3>
+            <ul>
+                <li><strong>Smart Bar Management:</strong> Track your entire bar inventory with barcode scanning and organized categories</li>
+                <li><strong>Intelligent Cocktail Suggestions:</strong> Get personalized recommendations based on what you already have</li>
+                <li><strong>Universal Recipe Import:</strong> Import recipes from popular cocktail websites with one click</li>
+                <li><strong>Comprehensive Organization:</strong> Filter, search, and organize your cocktail collection</li>
+                <li><strong>Beautiful Interface:</strong> Modern design with list and grid views</li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>Getting Started</h2>
+            
+            <h3>First Launch</h3>
+            <p>When you first open the app, you'll be guided through:</p>
+            <ol>
+                <li><strong>Permissions:</strong> Grant access to your photo library and camera for adding cocktail images</li>
+                <li><strong>Bar Setup:</strong> Start adding items to your bar inventory</li>
+                <li><strong>Explore:</strong> Browse the app's features and start adding cocktails</li>
+            </ol>
+            
+            <h3>Quick Start Guide</h3>
+            <ol>
+                <li>Add items to your bar using the Bar tab</li>
+                <li>Use barcode scanning for quick additions</li>
+                <li>Browse suggested cocktails based on your inventory</li>
+                <li>Add new cocktails manually or import from websites</li>
+                <li>Filter and search to find exactly what you want</li>
+            </ol>
+        </div>
+        
+        <div class="section">
+            <h2>Features Overview</h2>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>🍸 Bar Management</h4>
+                    <ul>
+                        <li>Barcode scanning</li>
+                        <li>Categorized organization</li>
+                        <li>Quantity tracking</li>
+                        <li>Expiration date tracking</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-card">
+                    <h4>🧠 Smart Suggestions</h4>
+                    <ul>
+                        <li>50%+ ingredient matching</li>
+                        <li>Prioritized by availability</li>
+                        <li>Missing ingredient lists</li>
+                        <li>Available ingredient highlighting</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-card">
+                    <h4>🌐 Recipe Import</h4>
+                    <ul>
+                        <li>One-click URL import</li>
+                        <li>Automatic data extraction</li>
+                        <li>Multiple website support</li>
+                        <li>Manual recipe entry</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-card">
+                    <h4>📱 Viewing Options</h4>
+                    <ul>
+                        <li>List view</li>
+                        <li>Grid view (1-4 columns)</li>
+                        <li>Search functionality</li>
+                        <li>Advanced filtering</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <h4>How do I add a new cocktail?</h4>
+                <p>Tap the "+" button in the top right corner of the Cocktails tab. Fill in the cocktail details including name, ingredients, instructions, base spirit, category, and difficulty. You can also add a photo and set prep time. Tap "Save" when you're done.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h4>How do I import a cocktail from a website?</h4>
+                <p>Tap the "+" button in the Cocktails tab, then select "Import from URL". Paste the recipe URL from a supported website. The app will automatically extract the recipe details for you to review and save. Supported websites include:</p>
+                <div class="supported-sites">
+                    <span class="site-badge">Kindred Cocktails</span>
+                    <span class="site-badge">Master of Mixes</span>
+                    <span class="site-badge">Serious Eats</span>
+                    <span class="site-badge">A Couple Cooks</span>
+                    <span class="site-badge">Buchanan's Whisky</span>
+                    <span class="site-badge">Jim Beam</span>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <h4>What base spirits can I choose from?</h4>
+                <p>You can select from:</p>
+                <ul>
+                    <li><strong>Whiskey/Whisky:</strong> Bourbon, Scotch, Irish, American, Tennessee</li>
+                    <li><strong>Other Spirits:</strong> Vodka, Gin, Rum, Tequila, Brandy, Non-Alcoholic</li>
+                    <li><strong>Custom:</strong> Select "Other" to enter a custom base spirit name (e.g., "Angostura", "Sloe Gin")</li>
+                </ul>
+            </div>
+            
+            <div class="faq-item">
+                <h4>How do I filter cocktails?</h4>
+                <p>Use the filter button in the top left corner of the Cocktails tab. You can filter by:</p>
+                <ul>
+                    <li>Category (Classic, Modern, Tropical, Martini, Sour, etc.)</li>
+                    <li>Base Spirit</li>
+                    <li>Difficulty (Easy, Medium, Hard)</li>
+                    <li>Prep Time</li>
+                    <li>Alcohol Content (Non-Alcoholic, Low Alcohol)</li>
+                </ul>
+            </div>
+            
+            <div class="faq-item">
+                <h4>How do I manage my bar inventory?</h4>
+                <p>Go to the Bar tab to view and manage your ingredients. You can:</p>
+                <ul>
+                    <li>Add items manually or by scanning barcodes</li>
+                    <li>Organize items by category (Spirits, Liqueurs, Mixers, Garnishes, etc.)</li>
+                    <li>Update quantities and expiration dates</li>
+                    <li>Remove items you no longer have</li>
+                </ul>
+            </div>
+            
+            <div class="faq-item">
+                <h4>How do I switch between list and grid view?</h4>
+                <p>Tap the grid/list icon in the top right corner of the Cocktails tab to toggle between views. In grid view, use the slider icon to adjust the number of columns (1-4).</p>
+            </div>
+            
+            <div class="faq-item">
+                <h4>How do I share a cocktail?</h4>
+                <p>Open any cocktail and tap the share button in the top right corner. You can share via email, message, or print the recipe.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h4>How do I backup my data?</h4>
+                <p>Tap the "+" button in the Cocktails tab, then select "Backup & Restore". Tap "Create New Backup" to save your current cocktails and bar items. The app automatically keeps your 3 most recent backups.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h4>How do I restore from a backup?</h4>
+                <p>Open "Backup & Restore" from the Add menu, select the backup you want to restore, and tap "Restore". <strong>Warning:</strong> This will replace all your current data with the backup. Make sure this is what you want before confirming.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h4>How many backups can I keep?</h4>
+                <p>The app automatically keeps your 3 most recent backups. When you create a new backup and you already have 3 backups, the oldest one is automatically deleted to make room for the new one.</p>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Troubleshooting</h2>
+            
+            <div class="troubleshooting-item">
+                <h4>App is not loading cocktails</h4>
+                <p>Try these steps:</p>
+                <ol>
+                    <li>Close the app completely (swipe up from the bottom and swipe the app away)</li>
+                    <li>Restart your device</li>
+                    <li>Make sure you have an internet connection (for recipe imports)</li>
+                    <li>Update to the latest version of the app from the App Store</li>
+                    <li>If the problem persists, try creating a backup and reinstalling the app</li>
+                </ol>
+            </div>
+            
+            <div class="troubleshooting-item">
+                <h4>Can't add photos to cocktails</h4>
+                <p>Make sure you've granted photo access permissions to the app:</p>
+                <ol>
+                    <li>Go to Settings on your device</li>
+                    <li>Scroll down and tap "What's Your Poison?"</li>
+                    <li>Enable "Photos" access</li>
+                    <li>If you want to take new photos, also enable "Camera" access</li>
+                </ol>
+            </div>
+            
+            <div class="troubleshooting-item">
+                <h4>Recipe import from URL isn't working</h4>
+                <p>Some websites require JavaScript to load recipe content, which our app cannot parse. If you see an error message indicating a website requires JavaScript, you'll need to manually enter the recipe.</p>
+                <p><strong>Supported websites:</strong> Kindred Cocktails, Master of Mixes, Serious Eats, A Couple Cooks, Buchanan's Whisky, and Jim Beam.</p>
+                <p><strong>Tips for better imports:</strong></p>
+                <ul>
+                    <li>Make sure you're using the full recipe URL, not a shortened link</li>
+                    <li>Check that the website is one of our supported sites</li>
+                    <li>If import fails, try copying the recipe manually</li>
+                </ul>
+            </div>
+            
+            <div class="troubleshooting-item">
+                <h4>Barcode scanning isn't working</h4>
+                <p>If barcode scanning isn't working:</p>
+                <ol>
+                    <li>Make sure you've granted camera permissions</li>
+                    <li>Ensure good lighting when scanning</li>
+                    <li>Hold the barcode steady and at the right distance</li>
+                    <li>Clean your camera lens</li>
+                    <li>If the item isn't recognized, you can always add it manually</li>
+                </ol>
+            </div>
+            
+            <div class="troubleshooting-item">
+                <h4>Cocktail suggestions aren't showing</h4>
+                <p>If you're not seeing cocktail suggestions:</p>
+                <ol>
+                    <li>Make sure you have items in your Bar inventory</li>
+                    <li>Check that your bar items match ingredient names in cocktails</li>
+                    <li>Try adding more items to your bar for better matches</li>
+                    <li>Some cocktails may require exact ingredient matches</li>
+                </ol>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Tips & Tricks</h2>
+            
+            <h3>Maximize Your Bar</h3>
+            <ul>
+                <li>Add all your bar items, including mixers, juices, and garnishes</li>
+                <li>Use barcode scanning for quick additions while shopping</li>
+                <li>Keep your inventory updated to get accurate suggestions</li>
+                <li>Check expiration dates on mixers and juices</li>
+            </ul>
+            
+            <h3>Build Your Collection</h3>
+            <ul>
+                <li>Import recipes from your favorite cocktail websites</li>
+                <li>Save cocktails you want to try later</li>
+                <li>Use favorites to organize your go-to drinks</li>
+                <li>Add photos to make your collection more visual</li>
+            </ul>
+            
+            <h3>Get Better Suggestions</h3>
+            <ul>
+                <li>The more items in your bar, the better the suggestions</li>
+                <li>Use generic names for ingredients (e.g., "Vodka" instead of brand names)</li>
+                <li>Keep your bar inventory current</li>
+                <li>Check the "Missing Ingredients" list to see what you need</li>
+            </ul>
+        </div>
+        
+        <div class="contact-box">
+            <h3>Need More Help?</h3>
+            <p>We're here to assist you!</p>
+            <p style="margin-top: 15px;">
+                <strong>Email Support:</strong><br>
+                <a href="mailto:support@wood40202.com">support@wood40202.com</a>
+            </p>
+            <p style="margin-top: 15px; font-size: 0.9em; opacity: 0.9;">
+                We typically respond within 24-48 hours.
+            </p>
+        </div>
+        
+        <div class="section">
+            <h2>Privacy & Data</h2>
+            <p>What's Your Poison? respects your privacy:</p>
+            <ul>
+                <li><strong>Local Storage:</strong> All your data is stored locally on your device</li>
+                <li><strong>No Tracking:</strong> We don't collect or track any personal information</li>
+                <li><strong>No Cloud Sync:</strong> Your cocktails and bar inventory stay on your device</li>
+                <li><strong>Backups:</strong> Backups are stored locally on your device</li>
+            </ul>
+            <p style="margin-top: 15px;">The app only requests camera and photo library permissions to allow you to add images to your cocktails. These permissions are optional and the app works perfectly without them.</p>
+        </div>
+        
+        <footer>
+            <p><strong>What's Your Poison?</strong></p>
+            <p>Version 1.0.0</p>
+            <p style="margin-top: 10px; color: #999;">© 2024 What's Your Poison?. All rights reserved.</p>
+        </footer>
+    </div>
+    
+    <script>
+        // Set current date
+        const date = new Date();
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById('currentDate').textContent = date.toLocaleDateString('en-US', options);
+    </script>
+</body>
+</html>
 
